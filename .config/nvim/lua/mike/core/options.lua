@@ -17,6 +17,7 @@ opt.wrap = false
 -- search settings
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+opt.incsearch = true -- interactive search
 
 opt.cursorline = true
 
@@ -36,3 +37,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
+opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor

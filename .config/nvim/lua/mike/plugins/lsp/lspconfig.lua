@@ -71,7 +71,6 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
@@ -131,7 +130,39 @@ return {
           },
         })
       end,
+      ["pyright"] = function()
+        -- configure emmet language server
+        lspconfig["pyright"].setup({
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                ignore = { "*" },
+              },
+            },
+          },
+        })
+      end,
+      ["ruff_lsp"] = function()
+        -- configure emmet language server
+        lspconfig["ruff_lsp"].setup({
+          init_options = {
+            settings = {
+              -- Any extra CLI arguments for `ruff` go here.
+              args = {
+                "--select=E,F,UP,N,I,ASYNC,S,PTH",
+                "--line-length=79",
+                "--respect-gitignore",
+                "--target-version=py311",
+              },
+            },
+          },
+        })
+      end,
     })
   end,
 }
-
