@@ -11,12 +11,18 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decremen
 -- quit
 keymap.set("n", "<C-q>", ":q<cr>", { desc = "Quit" })
 
--- save'<C-l>',
+-- save
 keymap.set("n", "<C-s>", ":w<cr>", { desc = "Save" })
+
+-- select all
+keymap.set("n", "<C-a>", "ggVG<cr>", { desc = "Select all" })
 
 -- delete without yanking
 keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
 -- move a blocks of text up/down with K/J in visual mode
-keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move block of text up" })
-keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move block of text down" })
+keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move block of text up" })
+keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move block of text down" })
+
+keymap.set("n", "<C-k>", ":m -2<CR>", { silent = true, desc = "Move line up" })
+keymap.set("n", "<C-j>", ":m +1<CR>", { silent = true, desc = "Move line down" })

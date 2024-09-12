@@ -1,0 +1,89 @@
+configuration {
+  display-drun: "󰙋";
+  display-emoji: "󰙌";
+  drun-display-format: "{name}";
+  font: "Source Code Pro Semibold 11";
+  modi: "drun,emoji";
+}
+
+@theme "/dev/null"
+
+* {
+  base:             #000000;
+  border:           #683944;
+  basealt:          #111111;
+  text:             #ffffff;
+  green:            #78A083;
+  blue:             #76ABAE;
+  red:              #C94C4C;
+  yellow:           #E5C07B;
+  orange:           #D08770;
+  purple:           #B48EAD;
+  pink:             #bf5f75;
+
+  background-color: @base;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+ 
+window {
+  width: 25%;
+  height: 35%;
+  border: 2;
+  border-color: @border;
+  border-radius: 10;
+}
+
+element {
+  padding: 8 0;
+  text-color: @text;
+}
+
+element selected {
+  text-color: @pink;
+}
+
+element-text {
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element-icon {
+  size: 14;
+  padding: 0 10 0 0;
+}
+
+entry {
+  background-color: @basealt;
+  padding: 12;
+  border-radius: 0 10 10 0;
+  text-color: @text;
+}
+
+inputbar {
+  padding: 10 10 10;
+  children: [prompt, entry];
+}
+
+listview {
+  padding: 0 14;
+  background-color: @base;
+  columns: 1;
+  lines: 8;
+}
+
+mainbox {
+  background-color: @base;
+  children: [inputbar, listview];
+}
+
+prompt {
+  background-color: @basealt;
+  border-radius: 10 0 0 10;
+  enabled: true;
+  padding: 6 2 0 12;
+  text-color: @pink;
+  font: "Source Code Pro Semibold 18";
+}
+

@@ -1,0 +1,151 @@
+@define-color base            #000000;
+@define-color text            #ffffff;
+@define-color green           #78A083;
+@define-color blue            #76ABAE;
+@define-color red             #C94C4C;
+@define-color yellow          #E5C07B;
+@define-color orange          #D08770;
+@define-color purple          #B48EAD;
+@define-color pink            #bf5f75;
+@define-color border          #683944;
+
+* {
+  font-weight: bold;
+  font-size: 16px;
+  font-family: "Source Code Pro";
+}
+
+window#waybar {
+  background: transparent;
+}
+
+.modules-right {
+  border-radius: 10;
+  border: 2px solid @border;
+  background: @base;
+  margin-right: 12px;
+  padding-right: 10px;
+}
+
+.modules-left {
+  border-radius: 10;
+  border: 2px solid @border;
+  background: @base;
+  margin-left: 12px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.modules-center {
+  border-radius: 10;
+  border: 2px solid @border;
+  background: @base;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#workspaces button {
+  box-shadow: none;
+  padding-left: 3px;
+  padding-right: 3px;
+  color: @orange;
+}
+
+#workspaces button.empty {
+  box-shadow: none;
+  text-shadow: none;
+  color: @purple;
+}
+
+#workspaces button.active {
+  box-shadow: none;
+  text-shadow: none;
+  color: @red;
+}
+
+#network {
+  color: @purple;
+}
+
+#clock {
+  color: @purple;
+}
+
+#network {
+  margin-left: 10px;
+  font-size: 19px;
+}
+
+#tray {
+  margin-left: 10px;
+}
+
+#battery {
+  margin-left: 10px;
+}
+
+#pulseaudio {
+  color: @yellow;
+  margin-left: 10px;
+}
+
+#battery.plugged {
+  color: @green;
+}
+
+#battery.three-quarters {
+  color: @green;
+}
+
+#battery.full {
+  color: @green;
+}
+
+#battery.critical {
+  color: @red;
+}
+
+#battery.half {
+  color: @yellow;
+}
+
+#battery.warning {
+  color: @orange;
+}
+
+#battery.charging {
+  color: @green;
+}
+
+#cpu {
+  color: @purple;
+  margin-left: 10px;
+}
+
+#custom-gpu {
+  color: @orange;
+}
+
+#custom-gpu-icon {
+  color: @orange;
+  margin-left: 10px;
+  font-size: 22px;
+}
+
+#memory {
+  color: @orange;
+  margin-left: 10px;
+}
+#temperature {
+  color: @blue;
+  margin-left: 10px;
+}
+
+#custom-emoji {
+  margin-right: 10px;
+}
+
+#window {
+  margin-left: 10px;
+  color: @green;
+}

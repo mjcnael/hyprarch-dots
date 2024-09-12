@@ -29,6 +29,7 @@ return {
         "yaml",
         "html",
         "css",
+        "rasi",
         "prisma",
         "markdown",
         "markdown_inline",
@@ -42,6 +43,7 @@ return {
         "query",
         "vimdoc",
         "c",
+        "cpp",
       },
       incremental_selection = {
         enable = true,

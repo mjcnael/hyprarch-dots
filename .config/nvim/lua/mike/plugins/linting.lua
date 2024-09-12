@@ -15,7 +15,7 @@ return {
     }
 
     eslint.args = {
-      "--no-warn-ignored",
+      "--ignore",
       "--format",
       "json",
       "--stdin",

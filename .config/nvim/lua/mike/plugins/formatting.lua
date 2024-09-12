@@ -14,6 +14,8 @@ return {
         css = { "prettier" },
         html = { "prettier" },
         json = { "prettier" },
+        jsonc = { "prettier" },
+        rasi = { "prettier" },
         yaml = { "prettier" },
         markdown = { "prettier" },
         graphql = { "prettier" },

@@ -1,0 +1,118 @@
+{
+  "margin-top": 10,
+  "width": 1923,
+
+  "modules-left": ["custom/emoji", "hyprland/workspaces", "hyprland/window"],
+
+  "modules-center": ["clock"],
+
+  "modules-right": [
+    "memory",
+    "cpu",
+    "custom/gpu-icon",
+    "custom/gpu",
+    "temperature",
+    "battery",
+    "pulseaudio",
+    "network",
+    "tray",
+  ],
+
+  "hyprland/window": {
+    "format": "{initialTitle}",
+    "interval": 1,
+  },
+
+  "hyprland/workspaces": {
+    "persistent-workspaces": {
+      "*": 10,
+    },
+  },
+
+  "network": {
+    "format-wifi": "󰖩 ",
+    "format-disconnected": "󰖪 ",
+    "interval": 10,
+    "tooltip": false,
+  },
+
+  "clock": {
+    "format": "🥰 {:%H:%M %A %d.%m.%Y}",
+    "interval": 10,
+    "tooltip": false,
+  },
+
+  "memory": {
+    "interval": 5,
+    "format": " {}%",
+    "max-length": 10,
+  },
+
+  "custom/gpu": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "{}%",
+    "return-type": "",
+    "interval": 5,
+  },
+
+  "custom/gpu-icon": {
+    "format": "󰢮 ",
+    "interval": "once",
+    "tooltip": false,
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": " {}%",
+    "max-length": 10,
+  },
+
+  "temperature": {
+    "interval": 5,
+    "format": " {temperatureC}°C",
+  },
+
+  "tray": {
+    "spacing": 10,
+    "icon-size": 20,
+  },
+
+  "bluetuth": {},
+
+  "battery": {
+    "format": "{icon} {capacity}%",
+    "states": {
+      "full": 100,
+      "three-quarters": 75,
+      "half": 50,
+      "warning": 25,
+      "critical": 10,
+    },
+    "format-icons": {
+      "full": "",
+      "three-quarters": "",
+      "half": "",
+      "warning": "",
+      "critical": "",
+    },
+    "interval": 15,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " ",
+    "format-icons": {
+      "headphone": "",
+      "headphones": "",
+      "headset": "",
+      "default": ["", "", ""],
+    },
+    "interval": 1,
+  },
+
+  "custom/emoji": {
+    "format": "🍒",
+    "interval": "once",
+    "tooltip": false,
+  },
+}

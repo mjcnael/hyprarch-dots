@@ -36,21 +36,21 @@ return {
         -- miscs = {}, -- Uncomment to turn off hard-coded styles
       },
       color_overrides = {
-        all = {
-          text = "#F4CDE9",
-          subtext1 = "#DEBAD4",
-          subtext0 = "#C8A6BE",
-          overlay2 = "#B293A8",
-          overlay1 = "#D20F39",
-          overlay0 = "#866C7D",
-          surface2 = "#705867",
-          surface1 = "#5A4551",
-          surface0 = "#44313B",
-
-          base = "#352939",
-          mantle = "#211924",
-          crust = "#1a1016",
+        mocha = {
+          base = "#000000",
+          mantle = "#000000",
+          crust = "#000000",
         },
+      },
+      highlight_overrides = {
+        mocha = function(C)
+          return {
+            TabLineSel = { bg = C.pink },
+            CmpBorder = { fg = C.surface2 },
+            Pmenu = { bg = C.none },
+            TelescopeBorder = { link = "FloatBorder" },
+          }
+        end,
       },
       custom_highlights = {},
       default_integrations = true,
@@ -76,5 +76,13 @@ return {
     vim.cmd.colorscheme("catppuccin")
     vim.cmd.highlight("LineNr guifg=#C8A6BE")
     vim.cmd.highlight("EndOfBuffer guifg=#705867")
+    vim.cmd.highlight("Visual guifg=#e22473")
+    vim.cmd.highlight("Cursor guibg=#e22473 ctermbg=67")
+    vim.cmd.highlight("iCursor guibg=#e22473 ctermbg=229")
+    vim.cmd.highlight("rCursor guibg=#e22473 ctermbg=124")
+    vim.cmd.set(
+      "guicursor=n-v-c:block-Cursor/lCursor,i-ci-ve:ver100-iCursor,r-cr:block-rCursor,o:hor50-Cursor/lCursor,sm:block-iCursor,a:blinkwait1000-blinkon500-blinkoff250"
+    )
+    vim.cmd.highlight("FoldColumn guifg=#604a56")
   end,
 }
