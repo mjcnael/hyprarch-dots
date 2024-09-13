@@ -20,7 +20,7 @@ window#waybar {
 }
 
 .modules-right {
-  border-radius: 10;
+  border-radius: 10px;
   border: 2px solid @border;
   background: @base;
   margin-right: 12px;
@@ -28,7 +28,7 @@ window#waybar {
 }
 
 .modules-left {
-  border-radius: 10;
+  border-radius: 10px;
   border: 2px solid @border;
   background: @base;
   margin-left: 12px;
@@ -37,7 +37,7 @@ window#waybar {
 }
 
 .modules-center {
-  border-radius: 10;
+  border-radius: 10px;
   border: 2px solid @border;
   background: @base;
   padding-right: 10px;
