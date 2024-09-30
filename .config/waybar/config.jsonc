@@ -7,25 +7,36 @@
   "modules-center": ["clock"],
 
   "modules-right": [
+    "tray",
     "memory",
     "cpu",
-    "custom/gpu-icon",
-    "custom/gpu",
+    // "custom/gpu-icon",
+    // "custom/gpu",
     "temperature",
     "battery",
     "pulseaudio",
     "network",
-    "tray",
   ],
 
   "hyprland/window": {
-    "format": "{initialTitle}",
+    "format": " {initialTitle}",
     "interval": 1,
   },
 
   "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+    },
     "persistent-workspaces": {
-      "*": 10,
+      "*": 8,
     },
   },
 
@@ -37,7 +48,7 @@
   },
 
   "clock": {
-    "format": "🥰 {:%H:%M %A %d.%m.%Y}",
+    "format": "{:%H:%M %A %d.%m.%Y}",
     "interval": 10,
     "tooltip": false,
   },
@@ -48,19 +59,19 @@
     "max-length": 10,
   },
 
-  "custom/gpu": {
-    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-    "format": "{}%",
-    "return-type": "",
-    "interval": 5,
-  },
-
-  "custom/gpu-icon": {
-    "format": "󰢮 ",
-    "interval": "once",
-    "tooltip": false,
-  },
-
+  // "custom/gpu": {
+  //   "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+  //   "format": "{}%",
+  //   "return-type": "",
+  //   "interval": 5,
+  // },
+  //
+  // "custom/gpu-icon": {
+  //   "format": "󰢮",
+  //   "interval": "once",
+  //   "tooltip": false,
+  // },
+  //
   "cpu": {
     "interval": 5,
     "format": " {}%",
@@ -73,27 +84,21 @@
   },
 
   "tray": {
-    "spacing": 10,
+    "spacing": 7,
     "icon-size": 20,
+    "interval": 5,
   },
 
   "bluetuth": {},
 
   "battery": {
-    "format": "{icon} {capacity}%",
+    "format": " {capacity}%",
     "states": {
       "full": 100,
       "three-quarters": 75,
       "half": 50,
       "warning": 25,
       "critical": 10,
-    },
-    "format-icons": {
-      "full": "",
-      "three-quarters": "",
-      "half": "",
-      "warning": "",
-      "critical": "",
     },
     "interval": 15,
   },
@@ -111,7 +116,7 @@
   },
 
   "custom/emoji": {
-    "format": "🍒",
+    "format": "✨",
     "interval": "once",
     "tooltip": false,
   },

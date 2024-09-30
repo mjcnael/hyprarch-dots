@@ -86,4 +86,3 @@ prompt {
   text-color: @pink;
   font: "Source Code Pro Semibold 18";
 }
-

@@ -76,6 +76,7 @@ export PATH=$PATH:~/.spoof-dpi/bin
 alias ls='ls --color'
 alias vim="nvim"
 alias c='clear'
+alias ssh="kitty +kitten ssh"
 
 # Shell integrations
 eval "$(fzf --zsh)"

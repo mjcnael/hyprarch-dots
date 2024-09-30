@@ -89,11 +89,11 @@ return {
         lspconfig["svelte"].setup({
           capabilities = capabilities,
           on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
+            vim.api.nvim_create_autocmd("bufwritepost", {
               pattern = { "*.js", "*.ts" },
               callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+                -- here use ctx.match instead of ctx.file
+                client.notify("$/ondidchangetsorjsfile", { uri = ctx.match })
               end,
             })
           end,
@@ -111,13 +111,13 @@ return {
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
           settings = {
-            Lua = {
+            lua = {
               -- make the language server recognize "vim" global
               diagnostics = {
                 globals = { "vim" },
               },
               completion = {
-                callSnippet = "Replace",
+                callsnippet = "replace",
               },
             },
           },
@@ -128,12 +128,12 @@ return {
         lspconfig["pyright"].setup({
           settings = {
             pyright = {
-              -- Using Ruff's import organizer
-              disableOrganizeImports = true,
+              -- using ruff's import organizer
+              disableorganizeimports = true,
             },
             python = {
               analysis = {
-                -- Ignore all files for analysis to exclusively use Ruff for linting
+                -- ignore all files for analysis to exclusively use ruff for linting
                 ignore = { "*" },
               },
             },
@@ -145,14 +145,23 @@ return {
         lspconfig["ruff_lsp"].setup({
           init_options = {
             settings = {
-              -- Any extra CLI arguments for `ruff` go here.
+              -- any extra cli arguments for `ruff` go here.
               args = {
-                "--select=E,F,UP,N,I,ASYNC,S,PTH",
+                "--select=e,f,up,n,i,async,s,pth",
                 "--line-length=80",
                 "--respect-gitignore",
                 "--target-version=py312",
               },
             },
+          },
+        })
+      end,
+      ["tailwindcss"] = function()
+        -- configure emmet language server
+        lspconfig["tailwindcss"].setup({
+          filetypes = {
+            "javascriptreact",
+            "typescriptreact",
           },
         })
       end,

@@ -45,6 +45,7 @@ return {
         "eslint_d",
         "isort",
         "black",
+        "codelldb",
       },
     })
   end,
