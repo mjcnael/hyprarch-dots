@@ -124,40 +124,9 @@ return {
         })
       end,
       ["pyright"] = function()
-        -- configure emmet language server
-        lspconfig["pyright"].setup({
-          settings = {
-            pyright = {
-              -- using ruff's import organizer
-              disableorganizeimports = true,
-            },
-            python = {
-              analysis = {
-                -- ignore all files for analysis to exclusively use ruff for linting
-                ignore = { "*" },
-              },
-            },
-          },
-        })
-      end,
-      ["ruff_lsp"] = function()
-        -- configure emmet language server
-        lspconfig["ruff_lsp"].setup({
-          init_options = {
-            settings = {
-              -- any extra cli arguments for `ruff` go here.
-              args = {
-                "--select=e,f,up,n,i,async,s,pth",
-                "--line-length=80",
-                "--respect-gitignore",
-                "--target-version=py312",
-              },
-            },
-          },
-        })
+        lspconfig["pyright"].setup({})
       end,
       ["tailwindcss"] = function()
-        -- configure emmet language server
         lspconfig["tailwindcss"].setup({
           filetypes = {
             "javascriptreact",

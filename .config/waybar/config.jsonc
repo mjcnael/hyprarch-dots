@@ -48,7 +48,7 @@
   },
 
   "clock": {
-    "format": "{:%H:%M %A %d.%m.%Y}",
+    "format": "{:%H:%M %A %d.%m.%Y} 🍀",
     "interval": 10,
     "tooltip": false,
   },
