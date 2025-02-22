@@ -2,9 +2,9 @@ return {
   "ray-x/lsp_signature.nvim",
   config = function()
     require("lsp_signature").setup({
-      hint_enable = false,
-      handler_opts = { border = "none" },
-      max_width = 80,
+      hint_enable = true,
+      hint_prefix = "🍀 ",
+      floating_window = false,
     })
   end,
 }

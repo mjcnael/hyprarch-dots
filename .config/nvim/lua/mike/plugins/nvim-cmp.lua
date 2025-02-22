@@ -4,6 +4,8 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer", -- source for text in buffer
     "hrsh7th/cmp-path", -- source for file system paths
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-cmdline",
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -13,15 +15,12 @@ return {
     },
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "onsails/lspkind.nvim", -- vs-code like pictograms
     "mlaursen/vim-react-snippets",
   },
   config = function()
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
-
-    local lspkind = require("lspkind")
 
     require("vim-react-snippets").lazy_load()
 
@@ -35,28 +34,48 @@ return {
         end,
       },
       mapping = cmp.mapping.preset.insert({
-        ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+        ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+        ["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
+        ["<Tab>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
       }),
+      window = {
+        completion = cmp.config.window.bordered({
+          winhighlight = "FloatBorder:CmpBorder,CursorLine:CmpBorder",
+        }),
+        documentation = cmp.config.window.bordered({
+          winhighlight = "FloatBorder:CmpBorder,CursorLine:CmpBorder",
+        }),
+      },
 
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
         { name = "vim-react-snippets" }, -- file system paths
+        { name = "nvim_lsp" },
+        { name = "nvim_lsp_signature_help" },
       }),
+    })
 
-      -- configure lspkind for vs-code like pictograms in completion menu
-      formatting = {
-        format = lspkind.cmp_format({
-          maxwidth = 52,
-          ellipsis_char = "...",
-        }),
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = "buffer" },
       },
+    })
+
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = "path" },
+      }, {
+        { name = "cmdline" },
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false },
     })
   end,
 }

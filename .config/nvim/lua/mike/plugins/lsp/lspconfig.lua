@@ -46,7 +46,6 @@ return {
 
         opts.desc = "Smart rename"
         keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
         opts.desc = "Show buffer diagnostics"
         keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=1<CR>", opts) -- show  diagnostics for file
 
@@ -84,21 +83,6 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
-          capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("bufwritepost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- here use ctx.match instead of ctx.file
-                client.notify("$/ondidchangetsorjsfile", { uri = ctx.match })
-              end,
-            })
-          end,
-        })
-      end,
       ["emmet_ls"] = function()
         -- configure emmet language server
         lspconfig["emmet_ls"].setup({
@@ -124,15 +108,23 @@ return {
         })
       end,
       ["pyright"] = function()
-        lspconfig["pyright"].setup({})
-      end,
-      ["tailwindcss"] = function()
-        lspconfig["tailwindcss"].setup({
-          filetypes = {
-            "javascriptreact",
-            "typescriptreact",
+        lspconfig["pyright"].setup({
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                -- Ignore all files for analysis to exclusively use Ruff for linting
+                -- ignore = { "*" },
+              },
+            },
           },
         })
+      end,
+      ["ruff"] = function()
+        lspconfig["ruff"].setup({})
       end,
     })
   end,

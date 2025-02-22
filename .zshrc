@@ -76,18 +76,18 @@ export EDITOR=nvim
 # Aliases
 alias ls='ls --color'
 alias vim="nvim"
+alias t="tmux"
 alias c='clear'
 alias ssh="kitty +kitten ssh"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
-. "/home/mike/.deno/env"
 
+. "$HOME/.local/bin/env"
 
 python_venv() {
-  MYVENV=./venv
+  MYVENV=.venv
   # when you cd into a folder that contains $MYVENV
   [[ -d $MYVENV ]] && source $MYVENV/bin/activate > /dev/null 2>&1
   # when you cd into a folder that doesn't
@@ -95,4 +95,19 @@ python_venv() {
 }
 autoload -U add-zsh-hook
 add-zsh-hook chpwd python_venv
+
 python_venv
+. "/home/mike/.deno/env"
+# bun completions
+[ -s "/home/mike/.bun/_bun" ] && source "/home/mike/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/mike/.lmstudio/bin"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/mike/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

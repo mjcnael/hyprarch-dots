@@ -25,13 +25,13 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "svelte",
         "lua_ls",
         "emmet_ls",
         "prismals",
         "ts_ls",
         "jdtls",
         "clangd",
+        "pyright",
       },
     })
 
@@ -39,12 +39,10 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "eslint_d",
-        "mypy",
         "codelldb",
-        "pyright",
         "ruff",
-        "black",
+        "eslint_d",
+        "debugpy",
       },
     })
   end,

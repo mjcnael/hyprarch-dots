@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     require("catppuccin").setup({
-      flavour = "auto", -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       background = { -- :h background
         light = "latte",
         dark = "mocha",
@@ -38,21 +38,21 @@ return {
       color_overrides = {
         mocha = {
           base = "#000000",
-          mantle = "#000000",
           crust = "#000000",
+          mantle = "#000000",
         },
       },
       highlight_overrides = {
         mocha = function(C)
           return {
-            TabLineSel = { bg = C.pink },
-            CmpBorder = { fg = C.surface2 },
+            TabLineSel = { bg = "#bf5f75" },
+            CmpBorder = { fg = "#bf5f75" },
             Pmenu = { bg = C.none },
-            TelescopeBorder = { link = "FloatBorder" },
+            TelescopeBorder = { fg = "#bf5f75" },
+            RenderMarkdownCode = { bg = "#111111" },
           }
         end,
       },
-      custom_highlights = {},
       default_integrations = true,
       integrations = {
         cmp = true,
@@ -72,12 +72,28 @@ return {
       },
     })
 
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "rounded",
+    })
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "rounded",
+    })
+
+    vim.diagnostic.config({
+      float = { border = "rounded" },
+    })
+
     -- setup must be called before loading
     vim.cmd.colorscheme("catppuccin")
     vim.cmd.highlight("LineNr guifg=#C8A6BE")
+
     vim.cmd.highlight("EndOfBuffer guifg=#705867")
-    vim.cmd.highlight("Visual guifg=#e22473")
+    vim.cmd.highlight("Visual guifg=#e22473 guibg=none")
+    vim.cmd.highlight("FloatBorder guifg=#bf5f75")
+    vim.cmd.highlight("Normal guibg=none ctermbg=none")
     vim.cmd.highlight("Cursor guibg=#e22473 ctermbg=67")
+    vim.cmd.highlight("CursorLine guibg=none")
     vim.cmd.highlight("iCursor guibg=#e22473 ctermbg=229")
     vim.cmd.highlight("rCursor guibg=#e22473 ctermbg=124")
     vim.cmd.set(

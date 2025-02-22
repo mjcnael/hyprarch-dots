@@ -14,6 +14,8 @@ return {
       highlight = {
         enable = true,
       },
+      auto_install = true,
+      sync_install = false,
       -- enable indentation
       indent = { enable = true },
       -- enable autotagging (w/ nvim-ts-autotag plugin)
@@ -41,8 +43,10 @@ return {
         "dockerfile",
         "gitignore",
         "query",
+        "python",
         "vimdoc",
         "c",
+        "proto",
         "cpp",
       },
       incremental_selection = {

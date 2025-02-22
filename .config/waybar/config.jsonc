@@ -26,14 +26,14 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
+      "1": "初",
+      "2": "心",
+      "3": "忘",
+      "4": "る",
+      "5": "べ",
+      "6": "か",
+      "7": "ら",
+      "8": "ず",
     },
     "persistent-workspaces": {
       "*": 8,
@@ -116,7 +116,7 @@
   },
 
   "custom/emoji": {
-    "format": "✨",
+    "format": "🌺",
     "interval": "once",
     "tooltip": false,
   },
