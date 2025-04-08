@@ -1,11 +1,11 @@
 max-visible=3
 anchor=top-right
-font=Iosevka 11
+font=Source Code Pro
 layer=top
 default-timeout=4000
-text-alignment=left
-icon-path=/usr/share/icons/Papirus-Dark/
-icon-location=right
+text-alignment=right
+icon-path=/home/mike/.icons/Reversal-pink
+icon-location=left
 format=<b>%s</b>\n%b
 
 width=380
@@ -20,11 +20,10 @@ padding=23
 # Colors
 
 background-color=#000000AA
-text-color=#DCD7BA
-border-color=#928374
+text-color=#ffffff
+border-color=#D1595BAA
 border-size=1
-border-radius=7
-progress-color= source #1D2021D9
+border-radius=12
 max-icon-size=36
 
 

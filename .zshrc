@@ -1,12 +1,7 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+
+eval "$(starship init zsh)"
 
 # Download Zinit, if it's not there yet
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -17,14 +12,13 @@ fi
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
 # Add in snippets
 zinit snippet OMZP::git
@@ -70,21 +64,19 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-export PATH=$PATH:~/.spoof-dpi/bin
 export EDITOR=nvim
+
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # Aliases
 alias ls='ls --color'
 alias vim="nvim"
 alias t="tmux"
 alias c='clear'
-alias ssh="kitty +kitten ssh"
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
-. "$HOME/.local/bin/env"
 
 python_venv() {
   MYVENV=.venv
@@ -97,7 +89,7 @@ autoload -U add-zsh-hook
 add-zsh-hook chpwd python_venv
 
 python_venv
-. "/home/mike/.deno/env"
+
 # bun completions
 [ -s "/home/mike/.bun/_bun" ] && source "/home/mike/.bun/_bun"
 
@@ -105,9 +97,11 @@ python_venv
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/mike/.lmstudio/bin"
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/mike/.dart-cli-completion/zsh-config.zsh ]] && . /home/mike/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/mike/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+. "$HOME/.local/bin/env"
+

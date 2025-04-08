@@ -41,7 +41,7 @@ return {
         "stylua", -- lua formatter
         "codelldb",
         "ruff",
-        "eslint_d",
+        { "eslint_d", version = "13.1.2" },
         "debugpy",
       },
     })

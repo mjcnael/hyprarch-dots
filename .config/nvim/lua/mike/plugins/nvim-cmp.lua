@@ -51,11 +51,11 @@ return {
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
-        { name = "vim-react-snippets" }, -- file system paths
         { name = "nvim_lsp" },
         { name = "nvim_lsp_signature_help" },
+        { name = "vim-react-snippets" }, -- file system paths
+        { name = "path" }, -- file system paths
+        { name = "buffer" }, -- text within current buffer
       }),
     })
 
@@ -71,9 +71,8 @@ return {
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
       sources = cmp.config.sources({
-        { name = "path" },
-      }, {
         { name = "cmdline" },
+        { name = "path" },
       }),
       matching = { disallow_symbol_nonprefix_matching = false },
     })
