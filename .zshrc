@@ -102,6 +102,15 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 [[ -f /home/mike/.dart-cli-completion/zsh-config.zsh ]] && . /home/mike/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+autoload -U select-word-style
+select-word-style bash
 
 . "$HOME/.local/bin/env"
-

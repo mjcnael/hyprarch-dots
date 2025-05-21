@@ -1,4 +1,4 @@
-@define-color base            rgba(0, 0, 0, 1.0);
+@define-color base            rgba(0, 0, 0, 0.8);
 @define-color text            #ffffff;
 @define-color green           #78A083;
 @define-color blue            #76ABAE;
@@ -40,13 +40,7 @@ window#waybar {
   box-shadow: none;
   padding-left: 3px;
   padding-right: 3px;
-  color: @orange;
-}
-
-#workspaces button.empty {
-  box-shadow: none;
-  text-shadow: none;
-  color: @purple;
+  color: white;
 }
 
 #workspaces button.active {
@@ -60,11 +54,11 @@ window#waybar {
 }
 
 #network {
-  color: @purple;
+  color: white;
 }
 
 #clock {
-  color: @purple;
+  color: white;
   background: @base;
   padding-right: 10px;
   padding-left: 10px;
@@ -86,41 +80,41 @@ window#waybar {
 }
 
 #pulseaudio {
-  color: @yellow;
+  color: white;
   padding-left: 10px;
   background: @base;
 }
 
 #battery.plugged {
-  color: @green;
+  color: white;
 }
 
 #battery.three-quarters {
-  color: @green;
+  color: white;
 }
 
 #battery.full {
-  color: @green;
+  color: white;
 }
 
 #battery.critical {
-  color: @red;
+  color: white;
 }
 
 #battery.half {
-  color: @yellow;
+  color: white;
 }
 
 #battery.warning {
-  color: @orange;
+  color: white;
 }
 
 #battery.charging {
-  color: @green;
+  color: white;
 }
 
 #cpu {
-  color: @purple;
+  color: white;
   padding-left: 10px;
   background: @base;
 }
@@ -137,14 +131,14 @@ window#waybar {
 /* } */
 /**/
 #memory {
-  color: @orange;
+  color: white;
   padding-left: 10px;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   background: @base;
 }
 #temperature {
-  color: @blue;
+  color: white;
   padding-left: 10px;
   background: @base;
 }
@@ -159,5 +153,5 @@ window#waybar {
 }
 
 #window {
-  color: @yellow;
+  color: @red;
 }

@@ -1,6 +1,6 @@
-vim.cmd("let g:netrw_liststyle = 3")
-
 local opt = vim.opt
+
+vim.deprecate = function() end
 
 opt.relativenumber = true
 opt.number = true
@@ -40,23 +40,3 @@ opt.swapfile = false
 
 opt.scrolloff = 8 -- minimum number of lines to keep above and below the cursor
 opt.sidescrolloff = 8 --minimum number of columns to keep above and below the cursor
-
-local function escape(str)
-  -- You need to escape these characters to work correctly
-  local escape_chars = [[;,."|\]]
-  return vim.fn.escape(str, escape_chars)
-end
-
--- Recommended to use lua template string
-local en = [[`qwertyuiop[]asdfghjkl;'zxcvbnm]]
-local ru = [[ёйцукенгшщзхъфывапролджэячсмить]]
-local en_shift = [[~QWERTYUIOP{}ASDFGHJKL:"ZXCVBNM<>]]
-local ru_shift = [[ËЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ]]
-
-vim.opt.langmap = vim.fn.join({
-  -- | `to` should be first     | `from` should be second
-  escape(ru_shift)
-    .. ";"
-    .. escape(en_shift),
-  escape(ru) .. ";" .. escape(en),
-}, ",")

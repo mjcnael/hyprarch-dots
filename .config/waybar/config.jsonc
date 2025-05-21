@@ -48,7 +48,7 @@
   },
 
   "clock": {
-    "format": "{:%H:%M %A %d.%m.%Y} 🍀",
+    "format": "{:%H:%M %A %d.%m.%Y}",
     "interval": 10,
     "tooltip": false,
   },
@@ -85,7 +85,7 @@
 
   "tray": {
     "spacing": 7,
-    "icon-size": 20,
+    "icon-size": 18,
     "interval": 5,
   },
 

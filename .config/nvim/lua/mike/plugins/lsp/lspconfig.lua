@@ -5,13 +5,11 @@ return {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
+    "williamboman/mason-lspconfig.nvim", -- Add this dependency
   },
   config = function()
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-
-    -- import mason_lspconfig plugin
-    local mason_lspconfig = require("mason-lspconfig")
 
     -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -76,56 +74,70 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    mason_lspconfig.setup_handlers({
-      -- default handler for installed servers
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-      ["emmet_ls"] = function()
-        -- configure emmet language server
-        lspconfig["emmet_ls"].setup({
-          capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte", "rasi" },
-        })
-      end,
-      ["lua_ls"] = function()
-        -- configure lua server (with special settings)
-        lspconfig["lua_ls"].setup({
-          capabilities = capabilities,
-          settings = {
-            lua = {
-              -- make the language server recognize "vim" global
-              diagnostics = {
-                globals = { "vim" },
-              },
-              completion = {
-                callsnippet = "replace",
-              },
+    -- Configure mason-lspconfig
+    require("mason-lspconfig").setup({
+      ensure_installed = {}, -- you can specify servers here if you want
+      handlers = {
+        -- default handler for installed servers
+        function(server_name)
+          lspconfig[server_name].setup({
+            capabilities = capabilities,
+          })
+        end,
+        ["emmet_ls"] = function()
+          -- configure emmet language server
+          lspconfig["emmet_ls"].setup({
+            capabilities = capabilities,
+            filetypes = {
+              "html",
+              "typescriptreact",
+              "javascriptreact",
+              "css",
+              "sass",
+              "scss",
+              "less",
+              "svelte",
+              "rasi",
             },
-          },
-        })
-      end,
-      ["pyright"] = function()
-        lspconfig["pyright"].setup({
-          settings = {
-            pyright = {
-              -- Using Ruff's import organizer
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                -- Ignore all files for analysis to exclusively use Ruff for linting
-                -- ignore = { "*" },
+          })
+        end,
+        ["lua_ls"] = function()
+          -- configure lua server (with special settings)
+          lspconfig["lua_ls"].setup({
+            capabilities = capabilities,
+            settings = {
+              lua = {
+                -- make the language server recognize "vim" global
+                diagnostics = {
+                  globals = { "vim" },
+                },
+                completion = {
+                  callsnippet = "replace",
+                },
               },
             },
-          },
-        })
-      end,
-      ["ruff"] = function()
-        lspconfig["ruff"].setup({})
-      end,
+          })
+        end,
+        ["pyright"] = function()
+          lspconfig["pyright"].setup({
+            settings = {
+              pyright = {
+                -- Using Ruff's import organizer
+                disableOrganizeImports = true,
+              },
+              python = {
+                analysis = {
+                  -- Ignore all files for analysis to exclusively use Ruff for linting
+                  -- ignore = { "*" },
+                },
+              },
+            },
+          })
+        end,
+        ["ruff"] = function()
+          lspconfig["ruff"].setup({})
+        end,
+      },
     })
   end,
 }

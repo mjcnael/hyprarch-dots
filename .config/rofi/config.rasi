@@ -1,17 +1,25 @@
 configuration {
   display-drun: "✨";
   display-emoji: "✨";
+  display-clipboard: "✨";
   drun-display-format: "{name}";
-  font: "Source Code Pro Semibold 11";
-  modi: "drun,emoji";
+  font: "Source Code Pro Semibold 12";
+  transparency: "normal";
+  modi: "drun,clipboard:/home/mike/hyprarch-dots/.config/rofi/cliphist.sh,emoji";
+  kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+  kb-row-down: "Down,Control+j";
+  kb-accept-entry: "Control+m,Return,KP_Enter";
+kb-mode-previous: "Shift+Left,Control+Shift+Tab,Alt+Tab";
+  terminal: "mate-terminal";
+  kb-remove-to-eol: "Control+Shift+e";
 }
 
 @theme "/dev/null"
 
 * {
-  base:             #000000;
-  border:           #683944;
-  basealt:          #111111;
+  base:             rgba(0, 0, 0, 0.3);
+  border:           #bf5f75;
+  basealt:          rgba(0, 0, 0, 0.3);
   text:             #ffffff;
   green:            #78A083;
   blue:             #76ABAE;
@@ -37,6 +45,7 @@ window {
 
 element {
   padding: 8 0;
+  background-color: transparent;
   text-color: @text;
 }
 
@@ -45,6 +54,7 @@ element selected {
 }
 
 element-text {
+  background-color: transparent;
   text-color: inherit;
   vertical-align: 0.5;
 }
@@ -84,5 +94,5 @@ prompt {
   enabled: true;
   padding: 6 2 0 12;
   text-color: @pink;
-  font: "Source Code Pro Semibold 18";
+  font: "Source Code Pro Semibold 20";
 }
