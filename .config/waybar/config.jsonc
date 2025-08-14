@@ -1,6 +1,6 @@
 {
   "margin-top": 10,
-  "width": 1923,
+  "width": 1902,
 
   "modules-left": ["custom/emoji", "hyprland/workspaces", "hyprland/window"],
 
@@ -10,8 +10,6 @@
     "tray",
     "memory",
     "cpu",
-    // "custom/gpu-icon",
-    // "custom/gpu",
     "temperature",
     "battery",
     "pulseaudio",
@@ -25,24 +23,38 @@
 
   "hyprland/workspaces": {
     "format": "{icon}",
+    "separate-outputs": false,
+    "active-only": false,
     "format-icons": {
-      "1": "初",
-      "2": "心",
-      "3": "忘",
-      "4": "る",
-      "5": "べ",
-      "6": "か",
-      "7": "ら",
-      "8": "ず",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+
+      "11": "1",
+      "12": "2",
+      "13": "3",
+      "14": "4",
+      "15": "5",
+      "16": "6",
+      "17": "7",
+      "18": "8",
+      "19": "9",
     },
     "persistent-workspaces": {
-      "*": 8,
+      "eDP-1": [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      "HDMI-A-2": [11, 12, 13, 14, 15, 16, 17, 18, 19],
     },
   },
 
   "network": {
-    "format-wifi": "󰖩 ",
-    "format-disconnected": "󰖪 ",
+    "format-wifi": "󰤨 ",
+    "format-disconnected": "󰤭 ",
     "interval": 10,
     "tooltip": false,
   },
@@ -59,19 +71,6 @@
     "max-length": 10,
   },
 
-  // "custom/gpu": {
-  //   "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
-  //   "format": "{}%",
-  //   "return-type": "",
-  //   "interval": 5,
-  // },
-  //
-  // "custom/gpu-icon": {
-  //   "format": "󰢮",
-  //   "interval": "once",
-  //   "tooltip": false,
-  // },
-  //
   "cpu": {
     "interval": 5,
     "format": " {}%",
@@ -81,11 +80,12 @@
   "temperature": {
     "interval": 5,
     "format": " {temperatureC}°C",
+    "tooltip": false,
   },
 
   "tray": {
     "spacing": 7,
-    "icon-size": 18,
+    "icon-size": 17,
     "interval": 5,
   },
 
@@ -113,6 +113,7 @@
       "default": ["", ""],
     },
     "interval": 1,
+    "tooltip": false,
   },
 
   "custom/emoji": {

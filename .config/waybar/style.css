@@ -18,28 +18,63 @@ window#waybar {
   background: transparent;
 }
 
+/* Main container that holds all modules */
+#waybar > box {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 20%,
+    rgba(140, 50, 90, 0.9) 50%,
+    rgba(0, 0, 0, 0.75) 80%
+  );
+  border: 0.7px solid @purple;
+  border-radius: 15px;
+  padding: 0 10px;
+}
+
+/* Module containers - remove individual backgrounds/borders */
+.modules-left,
+.modules-center,
 .modules-right {
-  padding-right: 10px;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
-.modules-left {
+/* Reset all individual module styling */
+#custom-emoji,
+#workspaces,
+#window,
+#clock,
+#tray,
+#memory,
+#cpu,
+#temperature,
+#battery,
+#pulseaudio,
+#network {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 2px 5px;
+  color: white;
 }
 
-.modules-left {
-  padding-left: 10px;
-}
-
-#workspaces {
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  padding-right: 10px;
-  background: @base;
+#custom-emoji {
+  margin-top: 2px;
+  font-size: 18px;
 }
 
 #workspaces button {
   box-shadow: none;
   padding-left: 3px;
   padding-right: 3px;
+  color: @purple;
+  background: transparent;
+}
+
+#workspaces button.empty {
+  box-shadow: none;
+  text-shadow: none;
   color: white;
 }
 
@@ -49,109 +84,25 @@ window#waybar {
   color: @red;
 }
 
-#tray {
-  margin-right: 10px;
-}
-
-#network {
-  color: white;
+#window {
+  color: @red;
 }
 
 #clock {
   color: white;
-  background: @base;
-  padding-right: 10px;
-  padding-left: 10px;
-  border-radius: 15px;
+  font-weight: bold;
 }
 
-#network {
-  padding-left: 10px;
-  padding-right: 5px;
-  font-size: 17px;
-  background: @base;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
-#battery {
-  padding-left: 10px;
-  background: @base;
-}
-
-#pulseaudio {
-  color: white;
-  padding-left: 10px;
-  background: @base;
-}
-
-#battery.plugged {
-  color: white;
-}
-
-#battery.three-quarters {
-  color: white;
-}
-
-#battery.full {
-  color: white;
-}
-
-#battery.critical {
-  color: white;
-}
-
-#battery.half {
-  color: white;
-}
-
-#battery.warning {
-  color: white;
-}
-
+#battery.plugged,
+#battery.three-quarters,
+#battery.full,
+#battery.critical,
+#battery.half,
+#battery.warning,
 #battery.charging {
   color: white;
 }
 
-#cpu {
-  color: white;
-  padding-left: 10px;
-  background: @base;
-}
-
-/* #custom-gpu { */
-/*   color: @pink; */
-/* } */
-/**/
-/* #custom-gpu-icon { */
-/*   color: @pink; */
-/*   margin-left: 10px; */
-/*   margin-right: 10px; */
-/*   font-size: 22px; */
-/* } */
-/**/
-#memory {
-  color: white;
-  padding-left: 10px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background: @base;
-}
-#temperature {
-  color: white;
-  padding-left: 10px;
-  background: @base;
-}
-
-#custom-emoji {
-  font-size: 15px;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background: @base;
-  padding-right: 5px;
-  padding-left: 10px;
-}
-
-#window {
-  color: @red;
+#tray {
+  padding-right: 15px;
 }

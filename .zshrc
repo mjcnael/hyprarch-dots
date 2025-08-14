@@ -91,16 +91,11 @@ add-zsh-hook chpwd python_venv
 python_venv
 
 # bun completions
-[ -s "/home/mike/.bun/_bun" ] && source "/home/mike/.bun/_bun"
+[ -s "/home/mik3/.bun/_bun" ] && source "/home/mik3/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-
-## [Completion]
-## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/mike/.dart-cli-completion/zsh-config.zsh ]] && . /home/mike/.dart-cli-completion/zsh-config.zsh || true
-## [/Completion]
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -114,3 +109,16 @@ autoload -U select-word-style
 select-word-style bash
 
 . "$HOME/.local/bin/env"
+
+proxy_on() {
+    export http_proxy="http://127.0.0.1:12334"
+    export https_proxy="http://127.0.0.1:12334"
+    export all_proxy="socks5://127.0.0.1:12334"
+    export no_proxy="localhost,127.0.0.1"
+}
+
+proxy_off() {
+    unset http_proxy https_proxy all_proxy
+}
+
+proxy_on

@@ -5,7 +5,7 @@ configuration {
   drun-display-format: "{name}";
   font: "Source Code Pro Semibold 12";
   transparency: "normal";
-  modi: "drun,clipboard:/home/mike/hyprarch-dots/.config/rofi/cliphist.sh,emoji";
+  modi: "drun,clipboard:/home/mik3/hyprarch-dots/.config/rofi/cliphist.sh,emoji";
   kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
   kb-row-down: "Down,Control+j";
   kb-accept-entry: "Control+m,Return,KP_Enter";

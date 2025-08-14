@@ -50,7 +50,6 @@ return {
             CmpBorder = { fg = "#bf5f75" },
             Pmenu = { bg = C.none },
             TelescopeBorder = { fg = "#bf5f75" },
-            RenderMarkdownCode = { bg = "#111111" },
           }
         end,
       },
@@ -85,13 +84,23 @@ return {
       float = { border = "rounded" },
     })
 
-    -- setup must be called before loading
+    vim.o.winborder = "rounded"
     vim.cmd.colorscheme("catppuccin")
     vim.cmd.highlight("LineNr guifg=#C8A6BE")
 
     vim.cmd.highlight("EndOfBuffer guifg=#705867")
     vim.cmd.highlight("Visual guifg=#e22473 guibg=none")
-    vim.cmd.highlight("FloatBorder guifg=#bf5f75")
+    vim.cmd.highlight("FloatBorder guifg=#bf5f75 guibg=none")
+    vim.cmd.highlight("NormalFloat guibg=none")
+    vim.cmd.highlight("FloatTitle guibg=none")
+    vim.cmd.highlight("FloatFooter guibg=none")
+    vim.cmd.highlight("NormalFloat guibg=none")
+    vim.cmd.highlight("Substitute guibg=none guifg=#bf5f75")
+    vim.cmd.highlight("TelescopeSelection guibg=none guifg=#bf5f75")
+    vim.cmd.highlight("TelescopeSelectionCaret guibg=none guifg=#bf5f75")
+    vim.cmd.highlight("RenderMarkdownCodeInline guibg=#222222")
+    vim.cmd.highlight("RenderMarkdownCode guibg=#222222")
+    vim.cmd.highlight("RenderMarkdownInfo guibg=#222222")
     vim.cmd.highlight("Normal guibg=none ctermbg=none")
     vim.cmd.highlight("Cursor guibg=#e22473 ctermbg=67")
     vim.cmd.highlight("CursorLine guibg=none")

@@ -1,5 +1,5 @@
 return {
-    "mason-org/mason.nvim",
+  "mason-org/mason.nvim",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -41,7 +41,7 @@ return {
         "stylua", -- lua formatter
         "codelldb",
         "ruff",
-        { "eslint_d", version = "13.1.2" },
+        "eslint",
         "debugpy",
       },
     })
